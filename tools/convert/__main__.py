@@ -28,6 +28,7 @@ from .gemma4 import build_model as build_gemma4
 from .flint import ARCHITECTURES as FLINT_ARCHITECTURES
 from .flint import RECIPES as FLINT_RECIPES
 from .flint import build_model as build_flint
+from .direct_gguf import RECIPES as DIRECT_GGUF_RECIPES
 from .deepseek_v41 import ARCHITECTURES as DEEPSEEK_V41_ARCHITECTURES
 from .deepseek_v41 import RECIPES as DEEPSEEK_V41_RECIPES
 from .deepseek_v41 import GGUFShards
@@ -111,7 +112,8 @@ def _layers(value: str):
 
 def _function(value: str):
     recipes = {**RECIPES, **TERNARY_RECIPES, **GGUF_RECIPES, **QWEN4_EXP_GGUF_RECIPES,
-               **GEMMA4_RECIPES, **FLINT_RECIPES, **DEEPSEEK_V41_RECIPES}
+               **GEMMA4_RECIPES, **FLINT_RECIPES, **DEEPSEEK_V41_RECIPES,
+               **DIRECT_GGUF_RECIPES}
     if value in recipes:
         return recipes[value]
     filename, function = _recipe_parts(value)
